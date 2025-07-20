@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Detection</title>
+    <style>
+        body { font-family: Arial; background-color: #f8f9fa; text-align: center; padding-top: 50px; }
+        input[type=text], textarea {
+            width: 60%; padding: 12px 20px; margin: 8px 0;
+            display: inline-block; border: 1px solid #ccc; border-radius: 4px;
+        }
+        input[type=submit] {
+            width: 20%; background-color: #28a745; color: white;
+            padding: 14px 20px; margin: 8px 0; border: none;
+            border-radius: 4px; cursor: pointer;
+        }
+        .result {
+            margin-top: 20px; font-size: 1.5rem; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Spam Message Detector</h1>
+    <form action="/predict" method="post">
+        <textarea name="message" placeholder="Enter a message here..." rows="4" required></textarea><br>
+        <input type="submit" value="Check Spam">
+    </form>
+    {% if prediction %}
+        <div class="result">Result: {{ prediction }}</div>
+    {% endif %}
+</body>
+</html>
